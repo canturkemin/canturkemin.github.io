@@ -40,6 +40,12 @@
             animation-duration: 0.3s;
             animation-iteration-count: infinite;
         }
+        
+        #h1hover:hover {
+            transform: rotate(180deg);
+            color: white;
+            transition: all ease 0.2s;
+        }
 
         @keyframes renklendir {
             0% {
@@ -128,7 +134,7 @@
         <!-- background-color:rgb(110, 5, 136);  rgb(126, 13, 219); -->
         <div class="container">
             <blockquote class="blockquote text-center ">
-                <h1 class="text-center mb-auto" style="font-size: 70px;"> Welcome!</h1>
+                <h1 class="text-center mb-auto" id="h1hover" style="font-size: 70px;"> Welcome!</h1>
                 <br><br>
                 <p class="mb-0" style="font-size: 25px ;">In my website you can view information about me, my projects,
                     and my contact information.</p> <br>
