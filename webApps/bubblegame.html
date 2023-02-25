@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <style type="text/css">
+        #score {
+            font-size: 46px;
+            top: 25px;
+            right: 50px;
+            text-align: right;
+        }
+
+        #start {
+            color: azure;
+            top: 100px;
+            position: relative;
+            width: 50px;
+            padding: 10px 15px;
+            text-align: center;
+            background-color: black;
+            font: bold 15 px Arial;
+            -webkit-border-radius: 6px;
+            -moz-border-radius: 6px;
+
+        }
+
+        #start:hover {
+            cursor: pointer;
+        }
+
+        .bubb {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            font: bold 14px verdana;
+            background-color: yellow;
+            text-align: center;
+            -webkit-border-radius: 20px;
+            -moz-border-radius: 20px;
+            vertical-align: middle;
+            padding: 5px;
+        }
+
+        h1 {
+            margin-top: 200px;
+            left: 50%;
+            font-size: 5em;
+            transition: all ease 0.2s;
+            z-index: 74000;
+        }
+
+        .h1hover {
+            transform: rotate(180deg);
+            color: white;
+            transition: all ease 0.1s;
+        }
+
+        body {
+            background-color: #3498db;
+            font-family: 'Bungee', cursive;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="score">0</div>
+    
+    <center>
+        <h1>Welcome !</h1>
+    </center>
+    <center>
+    <div id="start">START</div></center>
+    <script>
+        $(document).ready(function () {
+
+            $("h1").hover(function () {
+                $(this).addClass("h1hover")
+            }, function () {
+                $(this).removeClass("h1hover")
+            });
+
+            var height = screen.height - 200;
+            var width = screen.width - 100;
+            var score = 0;
+            $("#score").hide();
+            $("#start").click(function () {
+                $(this).fadeOut("slow");
+                $("#score").show();
+                genLetter();
+
+            });
+            function genLetter() {
+                var color = genColor();
+                var k = Math.floor(Math.random() * (90 - 65 + 1) + 65);
+                var ch = String.fromCharCode(k);
+                var top = Math.floor(Math.random() * height);
+                var left = Math.floor(Math.random() * width);
+                $("body").append("<span class = 'bubb' id = '" + ch + "' style='left:" + left + "px ;top:" + top + "px ;background-color: #" + color + "  '>" + ch + "</span>");
+                setTimeout(genLetter, 1000);
+            }
+            function genColor() {
+                var color = '';
+                var values = ['a', 'b', 'c', 'd', 'e', 'f', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+                for (var i = 0; i < 6; i++) {
+                    var temp = Math.floor(Math.random() * 15);
+                    color += values[temp];
+                }
+                return color;
+            }
+            $(document).keydown(function (event) {
+                var keycode = String.fromCharCode(event.keyCode);
+                if ($("#" + keycode).length)         
+                {
+                    $("#" + keycode).remove();
+                    score += 20;
+                }else {
+                    alert("FAILED! Try again!");
+                    location.reload();
+
+                    
+                }
+
+                $("#score").html(score);
+            });
+        });
+    </script>
+</body>
+
+</html>
