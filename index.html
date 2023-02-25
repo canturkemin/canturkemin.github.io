@@ -8,14 +8,12 @@
 
     <link rel="icon" href="img/iconn.png" type="image/png">
     <title>Emin</title>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YR0DQ6HTBX"></script>
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
 
-      gtag('config', 'G-YR0DQ6HTBX');
+        gtag('config', 'G-YR0DQ6HTBX');
     </script>
     <style>
         body {
@@ -52,7 +50,18 @@
             animation-name: renk3;
             animation-duration: 0.5s;
             animation-iteration-count: infinite;
+        }
 
+        #stickright {
+            animation-name: spinright;
+            animation-duration: 0.5s;
+            animation-iteration-count: infinite;
+        }
+
+        #stickleft {
+            animation-name: spinleft;
+            animation-duration: 0.5s;
+            animation-iteration-count: infinite;
         }
 
         @keyframes renklendir {
@@ -140,7 +149,59 @@
             }
         }
 
+        @keyframes spinright {
+            0% {
+                transform: rotate(0deg);
+                transition: all ease 0.1s;
+            }
 
+            25% {
+                transform: rotate(90deg);
+                transition: all ease 0.1s;
+            }
+
+            50% {
+                transform: rotate(180deg);
+                transition: all ease 0.1s;
+            }
+
+            75% {
+                transform: rotate(270deg);
+                transition: all ease 0.1s;
+            }
+
+            100% {
+                transform: rotate(360deg);
+                transition: all ease 0.1s;
+            }
+        }
+
+        @keyframes spinleft {
+            0% {
+                transform: rotate(0deg);
+                transition: all ease 0.1s;
+            }
+
+            25% {
+                transform: rotate(-90deg);
+                transition: all ease 0.1s;
+            }
+
+            50% {
+                transform: rotate(-180deg);
+                transition: all ease 0.1s;
+            }
+
+            75% {
+                transform: rotate(-270deg);
+                transition: all ease 0.1s;
+            }
+
+            100% {
+                transform: rotate(-360deg);
+                transition: all ease 0.1s;
+            }
+        }
 
         .card {
             box-shadow: 4px 4px 20px 20px rgba(0, 0, 0, 0.2), 6px 6px 20px 20px rgba(0, 0, 0, 0.19);
@@ -199,8 +260,24 @@
         <div class="container">
             <div class="row">
                 <div class="col w-50">
-                    <p class="text-center"
-                        style="font-family: Helvetica, sans-serif; font-weight: bolder; font-size: 30px;">About</p>
+
+                    <div class="row">
+                        <div class="col-4 my-auto">
+                            <hr class="mx-auto" size="45px" align="center" id="stickright"
+                                style="opacity: 1; color: black; background-color: black; width: 5%; " />
+                        </div>
+                        <div class="col-4 my-auto"  >
+                            <p class="text-center"
+                                style="font-family: Helvetica, sans-serif; font-weight: bolder; font-size: 30px; margin: 0; padding: 0;">
+                                About</p>
+                        </div>
+                        <div class="col-4 my-auto">
+                            <hr class="mx-auto" size="45px" align="center" id="stickleft"
+                                style="opacity: 1; color: black; background-color: black; width: 5%; " />
+                        </div>
+                    </div>
+
+
                     <p style="font-family: Helvetica, sans-serif; font-size: 20px;">
                         Hi, I am Emin! I am Junior Management Information Systems student at Boğaziçi University. I
                         live in Istanbul, Türkiye.
