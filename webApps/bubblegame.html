@@ -3,8 +3,10 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Document</title>
+    <title>Bubble Game</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YR0DQ6HTBX"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
@@ -74,12 +76,13 @@
 
 <body>
     <div id="score">0</div>
-    
+
     <center>
         <h1>Welcome !</h1>
     </center>
     <center>
-    <div id="start">START</div></center>
+        <div id="start">START</div>
+    </center>
     <script>
         $(document).ready(function () {
 
@@ -119,15 +122,14 @@
             }
             $(document).keydown(function (event) {
                 var keycode = String.fromCharCode(event.keyCode);
-                if ($("#" + keycode).length)         
-                {
+                if ($("#" + keycode).length) {
                     $("#" + keycode).remove();
                     score += 20;
-                }else {
+                } else {
                     alert("FAILED! Try again!");
                     location.reload();
 
-                    
+
                 }
 
                 $("#score").html(score);
